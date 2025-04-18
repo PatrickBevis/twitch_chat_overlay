@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overlay Chat Twitch</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="chat-container"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tmi.js@1.8.5/dist/tmi.min.js"></script>
+  <script>
+    const client = new tmi.Client({
+      options: { debug: true },
+      channels: ['Orsay_'] // <-- à remplacer par ta chaîne Twitch
+    });
+
+    client.connect();
+
+    function getColorFromBadges(tags) {
+      const badges = tags.badges || {};
+      if ('broadcaster' in badges) return '#EA4335'; // rouge
+      if ('moderator' in badges) return '#34C759';   // vert
+      if ('partner' in badges) return '#A259FF';     // violet
+      if ('vip' in badges) return '#FF2D96';         // rose
+      if ('subscriber' in badges) return '#F4B940';  // jaune
+      return '#D1CED6'; // gris par défaut
+    }
+
+    client.on('message', (channel, tags, message, self) => {
+      const container = document.getElementById('chat-container');
+
+      const msgDiv = document.createElement('div');
+      msgDiv.className = 'message';
+
+      const nameSpan = document.createElement('span');
+      nameSpan.className = 'username';
+      nameSpan.textContent = tags['display-name'] || tags.username;
+      nameSpan.style.backgroundColor = getColorFromBadges(tags);
+
+      const textSpan = document.createElement('span');
+      textSpan.className = 'text';
+      textSpan.textContent = message;
+
+      msgDiv.appendChild(nameSpan);
+      msgDiv.appendChild(textSpan);
+      container.appendChild(msgDiv);
+
+      setTimeout(() => msgDiv.remove(), 20000); // messages disparaissent au bout de 20 sec
+    });
+  </script>
+</body>
+</html>
