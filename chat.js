@@ -26,9 +26,9 @@ window.addEventListener("onEventReceived", function (obj) {
                 "user-id": "100135110",
                 "user-type": "mod",
               },
-              nick: "Orsay_",
+              nick: displayName,
               userId: "100135110",
-              displayName: "Abracadabra",
+              displayName: displayName,
               displayColor: "#5B99FF",
               badges: [
                 {
@@ -50,7 +50,7 @@ window.addEventListener("onEventReceived", function (obj) {
                   description: "Verified",
                 },
               ],
-              channel: "Orsay_",
+              channel: displayName,
               text: "Howdy! My name is Bill and I am here to serve Kappa",
               isAction: !1,
               emotes: [
