@@ -97,7 +97,7 @@ window.addEventListener("onEventReceived", function (obj) {
 
 function addMessage(data, message) {
   const color = getColorFromBadgesArray(data.badges);
-
+  const safeText = message.replace(/https?:\/\/\S+/g, '[Link]');
   chat.insertAdjacentHTML(
     "beforeend",
     /*html*/ `<div id="message-${data.msgId}" data-sender="${data.userId}" class="message">
@@ -105,7 +105,7 @@ function addMessage(data, message) {
           ${data.displayName}
         </div>
         <div class="content">
-          ${message}
+          ${safeText}
         </div>
       </div>`
   );
