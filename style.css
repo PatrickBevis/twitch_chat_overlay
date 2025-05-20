@@ -1,5 +1,17 @@
-body, html {
-    font-family: "space grotesk";
+body,
+html {
+  font-family: "space grotesk";
+  font-size: 18px;
+  background: rgba(0, 0, 0, 0.5); /* Arrière-plan sombre semi-transparent */
+}
+
+.message {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  animation: slideIn 0.7s ease-out;
 }
 
 .messages {
@@ -8,31 +20,24 @@ body, html {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 30px;
   overflow-y: hidden;
   padding: 10px;
+  margin: 20px;
 }
 
-.message{
-  
-  color: white;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  
-  animation: slideIn 0.7s ease-out;
-}
 .meta {
   display: flex;
   align-items: center;
-  padding: 5px 12px;
-  border-radius: 2rem;
-  white-space: nowrap;
+  padding: 8px 16px;
+  box-shadow: 4px 4px  #00000055; 
+  font-weight: bold;
+  font-size: 0.8rem;
 }
 
-.emote{
+.emote {
   height: 1rem;
-  margin-left:5px;
+  margin-left: 5px;
 }
 
 @keyframes slideIn {

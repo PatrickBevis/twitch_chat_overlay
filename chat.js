@@ -26,31 +26,31 @@ window.addEventListener("onEventReceived", function (obj) {
                 "user-id": "100135110",
                 "user-type": "mod",
               },
-              nick: displayName,
+              nick: 'Orsay_',
               userId: "100135110",
-              displayName: displayName,
+              displayName: 'Orsay_',
               displayColor: "#5B99FF",
               badges: [
                 {
-                  type: "partner",
+                  type: "subscriber",
                   version: "1",
                   url: "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
                   description: "Moderator",
                 },
-                {
-                    type: "vip",
-                    version: "1",
-                    url: "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
-                    description: "Moderator",
-                  },
-                {
-                  type: "subscriber",
-                  version: "1",
-                  url: "https://static-cdn.jtvnw.net/badges/v1/d12a2e27-16f6-41d0-ab77-b780518f00a3/3",
-                  description: "Verified",
-                },
+                // {
+                //     type: "vip",
+                //     version: "1",
+                //     url: "https://static-cdn.jtvnw.net/badges/v1/3267646d-33f0-4b17-b3df-f923a41db1d0/3",
+                //     description: "Moderator",
+                //   },
+              //   {
+              //     type: "subscriber",
+              //     version: "1",
+              //     url: "https://static-cdn.jtvnw.net/badges/v1/d12a2e27-16f6-41d0-ab77-b780518f00a3/3",
+              //     description: "Verified",
+              //   },
               ],
-              channel: displayName,
+              channel: 'Orsay_',
               text: "Howdy! My name is Bill and I am here to serve Kappa",
               isAction: !1,
               emotes: [
@@ -126,12 +126,12 @@ function getColorFromBadgesArray(badgesArray) {
     moderator: "#34C759", // vert
     vip: "#FF2D96", // rose
     partner: "#A259FF", // violet
-    subscriber: "#0131B4", // bleu
+    subscriber: "#FFBB00", // jaune
   };
   for (const rank of priority) {
     if (badgesArray.some((b) => b.type === rank)) {
       return colors[rank];
     }
   }
-  return "#D1CED6"; // gris
+  return "#7a7779"; // gris
 }
