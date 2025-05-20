@@ -2,7 +2,7 @@ const chat = document.querySelector("#chat");
 
 window.addEventListener("onEventReceived", function (obj) {
   if (obj.detail.event.listener === "widget-button") {
-    if (obj.detail.event.field === "testMessage") {
+    // if (obj.detail.event.field === "testMessage") {
     //   let emulated = new CustomEvent("onEventReceived", {
     //     detail: {
     //       listener: "message",
@@ -76,8 +76,8 @@ window.addEventListener("onEventReceived", function (obj) {
     //     },
     //   });
     //   window.dispatchEvent(emulated);
-    }
-    return;
+    // }
+    // return;
   }
   if (obj.detail.listener === "delete-message") {
     const msgId = obj.detail.event.msgId;
